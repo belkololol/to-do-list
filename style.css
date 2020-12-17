@@ -34,3 +34,19 @@ input {
     border-radius: 3px;
     outline: none;
 }
+
+@media (max-width: 1100px) {
+
+    .container {
+        width: 65%;
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    .container {
+        width: 90%;
+    }
+
+}
