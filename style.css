@@ -48,5 +48,8 @@ input {
     .container {
         width: 90%;
     }
-
+  .task {
+        padding: 5px 5px;
+        width: 65%;
+    }
 }
