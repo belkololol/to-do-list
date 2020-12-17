@@ -15,30 +15,21 @@ input.addEventListener('keydown', (e) => {
 })
 
 function createTask() {
-    let createLi = document.createElement('li');
-    createLi.classList.add('list-group-item')
-    let createP = document.createElement('p');
-    createP.classList.add('task');
-    let createDiv =  document.createElement('div');
-    createDiv.classList.add('buttons');
-    let createButtonEdit = document.createElement('button');
-    createButtonEdit.classList.add('button-edit');
-    let createButtonDelete = document.createElement('button');
-    createButtonDelete.classList.add('button-delete');
-    let createIconDelete = document.createElement('i');
-    createIconDelete.classList.add('fas');
-    createIconDelete.classList.add('fa-trash');
-    let createIconEdit = document.createElement('i');
-    createIconEdit.classList.add('fas');
-    createIconEdit.classList.add('fa-edit');
-    createP.innerHTML = input.value;
-    taskList.appendChild(createLi);
-    createLi.appendChild(createP);
-    createLi.appendChild(createDiv);
-    createDiv.appendChild(createButtonEdit);
-    createDiv.appendChild(createButtonDelete);
-    createButtonDelete.appendChild(createIconDelete);
-    createButtonEdit.appendChild(createIconEdit);
+    const newTask = `
+    <li class="list-group-item">
+        <p class="task">${input.value}</p>
+        <div class="buttons">
+            <button class="btn btn-outline-primary border-0 button-edit">
+                  <i class="fas fa-edit"></i>
+             </button>
+             <button class="btn btn-outline-danger border-0 button-delete">
+                 <i class="fas fa-trash"></i>
+              </button>
+        </div>
+    </li>
+    `;
+
+    taskList.insertAdjacentHTML('beforeend', newTask);
 }
 
 function editTask(listItems, index) {
@@ -52,6 +43,7 @@ function editTask(listItems, index) {
                 const task = listItems[i].querySelector('.task');
                 task.classList.remove('active');
                 task.removeAttribute('contentEditable', true);
+                currentEditButton.blur()
             }
             currentEditButton.classList.remove('active-button-edit');
         } else {
@@ -147,7 +139,7 @@ document.addEventListener('click', (e) => {
     let task = document.querySelectorAll('.task');
     let edit = document.querySelectorAll('.button-edit');
     let iconedit = document.querySelectorAll('.fa-edit');
-    if (!e.target.classList.contains('task') && !e.target.classList.contains('button-edit') && !e.target.classList.contains('fa-edit') ) {
+    if (!e.target.classList.contains('task') && !e.target.classList.contains('button-edit') && !e.target.classList.contains('fa-edit')) {
         console.log('df')
         for (let i = 0; i < task.length; i++) {
             task[i].classList.remove('active');
