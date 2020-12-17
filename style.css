@@ -1,0 +1,36 @@
+.container {
+    width: 40%;
+    margin: 20px auto 0px;
+}
+
+input {
+    margin: 15px 0 30px 0;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task {
+    padding: 5px 10px;
+    width: 70%;
+    margin-bottom: 0;
+    transition: all 0.3s ease-out;
+    overflow-wrap: break-word;
+}
+
+.task:hover {
+    cursor: pointer;
+}
+
+.task.decor {
+    text-decoration: line-through;
+}
+
+.task.active {
+    box-shadow: 0px 0px 3px 1px #36ccff;
+    border-radius: 3px;
+    outline: none;
+}
